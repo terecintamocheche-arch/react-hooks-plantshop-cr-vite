@@ -96,3 +96,7 @@ Example request:
 {
   "name": "Aloe",
   "
+
+  ## Application Screenshot
+
+![Plantshop Application](./plants.png)
