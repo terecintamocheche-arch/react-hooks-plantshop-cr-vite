@@ -1,93 +1,98 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantshop 
 
-## Demo
+A React application for managing a plant store. Users can view available plants, add new plants, mark plants as sold out, and search for plants by name.
 
-Use this gif as an example of how the app should work.
+## Features
 
-![Demo GIF](./demo.gif)
+- Display all plants fetched from the backend when the application loads.
+- Add new plants using the form.
+- Mark plants as sold out.
+- Search plants by name.
+- Display filtered results based on the search input.
 
-## Instructions
+## Technologies Used
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+- React
+- JavaScript
+- CSS
+- Vite
+- JSON Server
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+## Getting Started
 
-## Setup
+### Prerequisites
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+Make sure you have Node.js and npm installed.
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+### Installation
 
-## Endpoints
+1. Clone the repository:
 
-The base URL for your backend is: `http://localhost:6001`
+   ```bash
+   git clone https://github.com/terecintamocheche-arch/react-hooks-plantshop-cr-vite.git
+   ```
 
-## Deliverables
+2. Navigate into the project:
 
-As a user:
+   ```bash
+   cd react-hooks-plantshop-cr-vite
+   ```
 
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
+3. Install dependencies:
 
-### Endpoints for Core Deliverables
+   ```bash
+   npm install
+   ```
 
-#### GET /plants
+### Running the Application
 
-Example Response:
+Open two terminals.
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+**Terminal 1: Start the backend**
+
+```bash
+npm run server
 ```
 
-#### POST `/plants`
+The backend runs at `http://localhost:6001`.
 
-Required Headers:
+**Terminal 2: Start the React application**
 
-```js
+```bash
+npm run dev
+```
+
+Open the local URL displayed in your terminal to view the application.
+
+## API Endpoints
+
+The backend uses JSON Server.
+
+Base URL: `http://localhost:6001`
+
+### GET /plants
+
+Fetches all plants from the database.
+
+```bash
+GET http://localhost:6001/plants
+```
+
+### POST /plants
+
+Adds a new plant to the database.
+
+Required header:
+
+```json
 {
   "Content-Type": "application/json"
 }
 ```
 
-Request Object:
+Example request:
 
 ```json
 {
-  "name": "string",
-  "image": "string",
-  "price": number
-}
-```
-
-Example Response:
-
-```json
-{
-  "id": 1,
   "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
-```
+  "
