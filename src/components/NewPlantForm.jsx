@@ -23,7 +23,7 @@ function NewPlantForm({ onAddPlant }) {
     const newPlant = {
       name: formData.name,
       image: formData.image,
-      price: Number(formData.price),
+      price: formData.price,
     };
 
     fetch("http://localhost:6001/plants", {
@@ -36,21 +36,51 @@ function NewPlantForm({ onAddPlant }) {
       .then((response) => response.json())
       .then((data) => {
         onAddPlant(data);
-        setFormData({ name: "", image: "", price: "" });
+
+        setFormData({
+          name: "",
+          image: "",
+          price: "",
+        });
       })
-      .catch((error) => console.error("Error adding plant:", error));
+      .catch((error) => {
+        console.error("Error adding plant:", error);
+      });
   }
 
   return (
     <div className="new-plant-form">
       <h2>New Plant</h2>
+
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Plant name"
-          value={formData.name} onChange={handleChange} required />
-        <input type="text" name="image" placeholder="Image URL"
-          value={formData.image} onChange={handleChange} required />
-        <input type="number" name="price" step="0.01" placeholder="Price"
-          value={formData.price} onChange={handleChange} required />
+        <input
+          type="text"
+          name="name"
+          placeholder="Plant name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="text"
+          name="image"
+          placeholder="Image URL"
+          value={formData.image}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="number"
+          name="price"
+          step="0.01"
+          placeholder="Price"
+          value={formData.price}
+          onChange={handleChange}
+          required
+        />
+
         <button type="submit">Add Plant</button>
       </form>
     </div>
